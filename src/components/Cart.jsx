@@ -1,14 +1,16 @@
+import { useContext } from "react";
+import { ShopContext } from "../context";
+
 const Cart = (props) => {
   const {
-    quantity = 0, 
+    order, 
     toggleCartVisibility = Function.prototype, 
-    
-  } = props;
+  } = useContext(ShopContext);
 
   return (
     <div className="cart blue darken-4 white-text" onClick={toggleCartVisibility}>
       <i className="material-icons">shopping_cart</i>
-      {quantity ? <span className="cart-quantity">{quantity}</span> : null}
+      {order.length ? <span className="cart-quantity">{order.length}</span> : null}
     </div>
   )
 };
